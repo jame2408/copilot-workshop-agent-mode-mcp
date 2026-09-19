@@ -100,7 +100,9 @@ function renderTodos() {
     todoList.append(item);
   });
 
-  const unfinishedCount = todos.filter((todo) => !todo.completed).length;
+  const completedCount = todos.filter((todo) => todo.completed).length;
+  const unfinishedCount = todos.length - completedCount;
+  clearCompletedButton.disabled = completedCount === 0;
   remainingCount.textContent = `未完成：${unfinishedCount} 項`;
 }
 
@@ -143,6 +145,15 @@ todoForm.addEventListener("submit", (event) => {
 });
 
 clearCompletedButton.addEventListener("click", () => {
+  if (!todos.some((todo) => todo.completed)) {
+    return;
+  }
+
+  const shouldClear = window.confirm("確定要清除所有已完成的待辦事項嗎？");
+  if (!shouldClear) {
+    return;
+  }
+
   todos = todos.filter((todo) => !todo.completed);
   saveTodos();
   renderTodos();
