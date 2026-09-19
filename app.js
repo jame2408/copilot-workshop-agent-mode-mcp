@@ -15,7 +15,7 @@ const filterButtons = document.querySelectorAll(".filter-button");
 const emptyMessages = {
   all: "還沒有任何待辦事項,新增一個吧!",
   active: "太棒了！目前沒有未完成的待辦事項。",
-  completed: "目前還沒有已完成的待辦事項。"
+  completed: "目前沒有已完成的事項；取消勾選的項目會被目前的篩選條件隱藏。"
 };
 
 let todos = loadTodos();
