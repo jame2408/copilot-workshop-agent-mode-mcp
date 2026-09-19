@@ -277,6 +277,12 @@ h1 {
   text-decoration: underline;
 }
 
+.clear-completed:disabled {
+  color: var(--color-completed);
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
